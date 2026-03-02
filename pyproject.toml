@@ -1,0 +1,18 @@
+[project]
+name = "pd-code-de-r1"
+version = "0.0.1"
+description = "erase r1-move from link pd_code."
+authors = [
+    {name = "GGN_2015",email = "neko@jlulug.org"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pd_code_sanity"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
