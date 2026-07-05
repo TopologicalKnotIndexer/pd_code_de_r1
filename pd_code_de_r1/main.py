@@ -28,7 +28,7 @@ def __dfs(nxt: dict, vis: list, pos: int) -> None:
 
     while True:
         top_pos      = vis[-1]
-        avai_nxt_pos = [v for v in nxt[top_pos] if v not in vis]
+        avai_nxt_pos = [v for v in sorted(nxt[top_pos]) if v not in vis]
         if len(avai_nxt_pos) == 0: # 无路可走
             break
         vis.append(avai_nxt_pos[0])
@@ -70,7 +70,7 @@ def de_r1(pd_code: list[list]) -> list[list]:
         nxt = __get_nxt(pd_code)
         vis = list() # 得到 dfs 序
 
-        for value in value_set:
+        for value in sorted(value_set):
             if value not in vis:
                 __dfs(nxt, vis, value)
 
@@ -83,4 +83,4 @@ def de_r1(pd_code: list[list]) -> list[list]:
     return pd_code
 
 if __name__ == "__main__":
-    print(de_r1([[1, 4, 2, 5], [5, 2, 6, 3], [3, 6, 4, 7], [7, 1, 8, 8]]))
+    print(de_r1([[2, 9, 3, 10], [4, 7, 1, 8], [6, 11, 7, 12], [8, 3, 5, 4], [9, 2, 10, 1], [12, 5, 11, 6]]))
