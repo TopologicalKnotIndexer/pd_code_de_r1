@@ -1,17 +1,23 @@
-# pd_code_de_r1
-erase r1-move in link pd_code.
+# pd-code-de-r1
 
-## Install
+Remove Reidemeister-I crossings from PD codes.
+
+## Installation
 
 ```bash
 pip install pd-code-de-r1
 ```
 
-## Usage
+## Quick start
 
-```python
-import pd_code_de_r1
+`from pd_code_de_r1 import de_r1`.
 
-link_pd_code = [[1, 4, 2, 5], [5, 2, 6, 3], [3, 6, 4, 7], [7, 1, 8, 8]]
-print(pd_code_de_r1.de_r1(link_pd_code))
-```
+PD codes are lists of four-entry crossings. Each arc label must occur exactly twice. Functions validate their inputs and do not mutate caller-owned PD-code lists unless explicitly documented.
+
+## Development
+
+Use Python 3.10 or newer for Python packages. Build distributions with `poetry build`. Run the package's tests or examples before publishing. C++ projects require a modern standards-compliant compiler.
+
+## License
+
+MIT. See `LICENSE`.
