@@ -60,7 +60,10 @@ def de_r1(pd_code: list[list]) -> list[list]:
                 
                 if len(single) == 2:
                     pd_code = [[(single[1] if x==single[0] else x) for x in line] for line in pd_code]
-                    break
+                # Restart after every deletion. Without this unconditional
+                # break, deleting a closed one-crossing component can shorten
+                # the list underneath the active range and raise IndexError.
+                break
     
     # 获取编码集合
     value_set = __get_value_set(pd_code)

@@ -19,7 +19,7 @@ print(de_r1(pd))  # []
 
 ## Algorithm
 
-A Reidemeister-I crossing contains a locally repeated arc pattern. The algorithm builds the opposite-slot strand graph, identifies labels trapped in the one-crossing loop, removes the crossing, reconnects its surviving strand endpoints, and renumbers labels along each remaining cycle. Removal is repeated because one reduction can expose another R1 crossing.
+A Reidemeister-I crossing contains a locally repeated arc pattern. The algorithm builds the opposite-slot strand graph, identifies labels trapped in the one-crossing loop, removes exactly one crossing, reconnects its surviving strand endpoints, and restarts the scan. Restarting is required for links containing a closed one-crossing component because deletion changes the active crossing indices. Labels are renumbered along every remaining component cycle, and removal repeats because one reduction can expose another R1 crossing.
 
 ## Input conventions
 
@@ -31,12 +31,13 @@ No external software is required.
 
 ## Development
 
-Run examples and package checks before release. Python packages require Python 3.10 or newer. Build PyPI artifacts with:
+Python 3.10 or newer is required. Run tests with `pd_code_sanity` available:
 
 ```bash
-poetry check
-poetry build
+python -m unittest discover -s tests -v
 ```
+
+No PyPI publication is performed as part of repository maintenance.
 
 ## License
 
