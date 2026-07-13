@@ -1,6 +1,6 @@
 [project]
 name = "pd-code-de-r1"
-version = "0.1.1"
+version = "0.1.2"
 description = "erase r1-move from link pd_code."
 authors = [
     {name = "GGN_2015",email = "neko@jlulug.org"}

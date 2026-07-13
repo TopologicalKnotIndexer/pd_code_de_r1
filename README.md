@@ -1,6 +1,6 @@
 # pd-code-de-r1
 
-Remove Reidemeister-I crossings from PD codes.
+Remove Reidemeister-I crossings from a planar-diagram code.
 
 ## Installation
 
@@ -8,15 +8,35 @@ Remove Reidemeister-I crossings from PD codes.
 pip install pd-code-de-r1
 ```
 
-## Quick start
+## Usage example
 
-`from pd_code_de_r1 import de_r1`.
+```python
+from pd_code_de_r1 import de_r1
 
-PD codes are lists of four-entry crossings. Each arc label must occur exactly twice. Functions validate their inputs and do not mutate caller-owned PD-code lists unless explicitly documented.
+pd = [[1, 1, 2, 2]]
+print(de_r1(pd))  # []
+```
+
+## Algorithm
+
+A Reidemeister-I crossing contains a locally repeated arc pattern. The algorithm builds the opposite-slot strand graph, identifies labels trapped in the one-crossing loop, removes the crossing, reconnects its surviving strand endpoints, and renumbers labels along each remaining cycle. Removal is repeated because one reduction can expose another R1 crossing.
+
+## Input conventions
+
+A PD code is represented as a list of four-entry crossings. Arc labels normally occur exactly twice. Public functions validate inputs and return new values rather than mutating caller-owned data unless their API explicitly says otherwise.
+
+## External software
+
+No external software is required.
 
 ## Development
 
-Use Python 3.10 or newer for Python packages. Build distributions with `poetry build`. Run the package's tests or examples before publishing. C++ projects require a modern standards-compliant compiler.
+Run examples and package checks before release. Python packages require Python 3.10 or newer. Build PyPI artifacts with:
+
+```bash
+poetry check
+poetry build
+```
 
 ## License
 
