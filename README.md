@@ -42,3 +42,16 @@ No PyPI publication is performed as part of repository maintenance.
 ## License
 
 MIT. See `LICENSE`.
+
+## Citation
+
+If you use this repository in academic work, please cite it as:
+
+```bibtex
+@software{topologicalknotindexer_pd_code_de_r1,
+  author = {{TopologicalKnotIndexer contributors}},
+  title = {{pd\_code\_de\_r1}},
+  year = {2026},
+  url = {https://github.com/TopologicalKnotIndexer/pd_code_de_r1}
+}
+```
